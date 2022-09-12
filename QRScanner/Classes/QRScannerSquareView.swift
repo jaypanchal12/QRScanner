@@ -49,11 +49,14 @@ public class QRScannerSquareView: UIView {
     }
     func setUp(){
         self.backgroundColor = UIColor.clear
+        self.layer.cornerRadius = 16
+        self.layer.masksToBounds = true
+        
         addSubview(scanLine)
         
         scanLine.translatesAutoresizingMaskIntoConstraints = false
         scanLine.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        scanLine.heightAnchor.constraint(equalToConstant: 2).isActive = true
+        scanLine.heightAnchor.constraint(equalToConstant: 0).isActive = true
         scanLine.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         scanLine.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
     }
@@ -142,9 +145,9 @@ public class QRScannerSquareView: UIView {
         UIGraphicsEndImageContext()
         scanLine.image = newImage
     }
-    override public func draw(_ rect: CGRect) {
-        super.draw(rect)
-        self.drawCorners()
-        drawLine()
-    }
+//    override public func draw(_ rect: CGRect) {
+//        super.draw(rect)
+//        //self.drawCorners()
+//       // drawLine()
+//    }
 }
